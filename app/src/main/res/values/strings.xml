@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Actividad30Dias_ATenderoIPardeiroFMiori</string>
+    <string name="circuito_1">Albert Park</string>
+    <string name="circuito_2">Sepang</string>
+    <string name="circuito_3">Shanghai</string>
+    <string name="circuito_4">Adelaida</string>
+    <string name="circuito_5">Montmeló</string>
+    <string name="circuito_6">Monaco</string>
+    <string name="circuito_7">Magny-Cours</string>
+    <string name="circuito_8">Red Bull Ring</string>
+    <string name="circuito_9">Bahrain</string>
+    <string name="circuito_10">Donington Park</string>
+    <string name="circuito_11">Imola</string>
+    <string name="circuito_12">Portimao</string>
+    <string name="circuito_13">Estambul</string>
+    <string name="circuito_14">Fuji</string>
+    <string name="circuito_15">Montreal</string>
+    <string name="circuito_16">Hockenheim</string>
+    <string name="circuito_17">Hungaroring</string>
+    <string name="circuito_18">Mugello</string>
+    <string name="circuito_19">Interlagos</string>
+    <string name="circuito_20">Long Beach</string>
+    <string name="circuito_21">Monza</string>
+    <string name="circuito_22">Nurburgring</string>
+    <string name="circuito_23">Sebring</string>
+    <string name="circuito_24">Sugo</string>
+    <string name="circuito_25">Road Atlanta</string>
+    <string name="circuito_26">Singapur</string>
+    <string name="circuito_27">Spa</string>
+    <string name="circuito_28">Suzuka</string>
+    <string name="circuito_29">Road America</string>
+    <string name="circuito_30">Abu Dhabi</string>
+    <string name="circuito_31">Watkins Glen</string>
+    <string name="circuito_32">Zandvoort</string>
+    <string name="circuito_33">Mount Panorama</string>
 </resources>
