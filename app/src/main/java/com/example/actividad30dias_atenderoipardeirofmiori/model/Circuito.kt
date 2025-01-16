@@ -5,6 +5,5 @@ import androidx.annotation.StringRes
 
 data class Circuito (
     @StringRes val nombre: Int,
-    val availableCourses: Int,
     @DrawableRes val imageRes: Int
 )
