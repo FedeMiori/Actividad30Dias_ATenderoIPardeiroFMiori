@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Actividad30Dias_ATenderoIPardeiroFMiori</string>
+    <string name="nombre">F1 Fotos</string>
+    <string name="expand_button_content_description">Ver más información del circuito</string>
     <string name="circuito_1">Albert Park</string>
     <string name="circuito_2">Sepang</string>
     <string name="circuito_3">Shanghai</string>
