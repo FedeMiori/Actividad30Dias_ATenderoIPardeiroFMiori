@@ -3,7 +3,7 @@ package com.example.actividad30dias_atenderoipardeirofmiori.data
 import com.example.actividad30dias_atenderoipardeirofmiori.R
 import com.example.actividad30dias_atenderoipardeirofmiori.model.Circuito
 
-object Datasource {
+class Datasource {
     fun loadCircuitos(): List<Circuito> {
         return listOf<Circuito>(
             Circuito(R.string.circuito_1, R.drawable.foto_1),

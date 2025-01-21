@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CircuitoApp() {
     CircuitoList(
-        circuitoList = Datasource.loadCircuitos(),
+        circuitoList = Datasource().loadCircuitos(),
     )
 }
 
@@ -69,15 +69,15 @@ fun CircuitoCard(circuito: Circuito, modifier: Modifier = Modifier) {
     Card(modifier = modifier) {
         Column {
             Image(
-                painter = painterResource(circuito.nombre),
-                contentDescription = stringResource(circuito.imageRes),
+                painter = painterResource(circuito.imageRes),
+                contentDescription = stringResource(circuito.nombre),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(194.dp),
                 contentScale = ContentScale.Crop
             )
             Text(
-                text = LocalContext.current.getString(circuito.imageRes),
+                text = LocalContext.current.getString(circuito.nombre),
                 modifier = Modifier.padding(16.dp),
                 style = MaterialTheme.typography.headlineSmall
 

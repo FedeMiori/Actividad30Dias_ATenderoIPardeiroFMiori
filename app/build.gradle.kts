@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.actividad30dias_atenderoipardeirofmiori"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.actividad30dias_atenderoipardeirofmiori"
