@@ -1,6 +1,7 @@
 package com.example.actividad30dias_atenderoipardeirofmiori
 
 import android.annotation.SuppressLint
+import android.graphics.fonts.Font
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,6 +12,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -30,6 +32,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,7 +46,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
+
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -62,7 +65,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Actividad30Dias_ATenderoIPardeiroFMioriTheme {
                 Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = Color.Red
                     ) {
                     CircuitoApp()
                 }
@@ -111,10 +114,10 @@ fun CircuitoCard(circuito: Circuito, modifier: Modifier = Modifier) {
                     .height(333.dp),
                 contentScale = ContentScale.Crop
             )
-            Box( // Usamos Box para añadir el fondo
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(180, 0, 0)) // Fondo rojo
+                    .background(Color(200,0,0))
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth()
@@ -122,12 +125,13 @@ fun CircuitoCard(circuito: Circuito, modifier: Modifier = Modifier) {
                     Text(
                         text = LocalContext.current.getString(circuito.nombre),
                         modifier = Modifier
-                            .padding(16.dp), // Añade espacio interno
+                            .padding(16.dp)
+                            .weight(1f),
                         style = MaterialTheme.typography.headlineSmall,
-                        fontFamily = FontFamily.Serif,
+                        //fontFamily = FontFamily.Serif,
                         fontStyle = FontStyle.Italic,
                         //fontWeight = FontWeight.Bold,
-                        color = Color.White // Color del texto
+                        color = Color.White
                     )
                     Expandible(
                         expanded = expanded,
@@ -152,15 +156,17 @@ fun DescripcionCircuito (
 ) {
     Column(
         modifier = modifier
+            .fillMaxSize()
+            .background(Color(175, 0, 0))
     ) {
+        Spacer(Modifier.height(10.dp))
         Text(
-            text = stringResource(R.string.about),
-            style = MaterialTheme.typography.labelSmall
-        )
-        Text(
+            modifier = Modifier.padding(horizontal = 10.dp),
             text = stringResource(descripcionCircuito),
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
+            color = Color.White
         )
+        Spacer(Modifier.height(10.dp))
     }
 }
 
@@ -174,21 +180,25 @@ fun Heather(modifier: Modifier = Modifier) {
             ) {
                 Image(
                     modifier = Modifier
-                        .size(dimensionResource(R.dimen.image_size))
+                        .size(dimensionResource(R.dimen.image_size) * 2f)
                         .padding(dimensionResource(R.dimen.padding_small)),
-                    painter = painterResource(R.drawable.formula_1_logo),
+                    painter = painterResource(R.drawable.fwonk_d_6358a63d),
 
                     contentDescription = null
                 )
-                Text(
+                /*Text(
                     text = stringResource(R.string.nombre),
                     style = MaterialTheme.typography.displayLarge,
-                    fontFamily = FontFamily.Serif,
+                    //fontFamily = FontFamily.Serif,
                     fontStyle = FontStyle.Italic,
-                    fontWeight = FontWeight.Bold
-                )
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )*/
             }
         },
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = Color(200, 0, 0)
+        ),
         modifier = modifier
     )
 }
@@ -201,14 +211,13 @@ private fun Expandible(
 ) {
     IconButton(
         onClick = onClick,
-        modifier = modifier
+        modifier = modifier.size(48.dp)
     ) {
         Icon(
             imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
             contentDescription = stringResource(R.string.expand_button_content_description),
-            tint = MaterialTheme.colorScheme.secondary
+            tint = MaterialTheme.colorScheme.secondary,
+            modifier = Modifier.size(36.dp)
         )
     }
 }
-
-//FALTA IMPLEMENTAR EL MÉTODO EXPANDIBLE

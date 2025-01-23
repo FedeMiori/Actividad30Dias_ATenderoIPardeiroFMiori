@@ -69,4 +69,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("androidx.compose.material:material-icons-extended:<version>")
     implementation("androidx.compose.material3:material3:<version>")
+
+    //Fuentes
+    implementation ("com.google.android.material:material:1.6.0")  // Si no la tienes
+    implementation ("androidx.compose.ui:ui-text:1.2.0")  // Asegúrate de tener esta dependencia
 }
