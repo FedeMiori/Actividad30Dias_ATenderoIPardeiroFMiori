@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -30,6 +31,10 @@ import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -93,6 +98,7 @@ fun CircuitoList(circuitoList: List<Circuito>, modifier: Modifier = Modifier) {
 
 @Composable
 fun CircuitoCard(circuito: Circuito, modifier: Modifier = Modifier) {
+    var expanded by remember { mutableStateOf(false) }
     Card(modifier = modifier) {
         Column {
             Image(
@@ -108,18 +114,51 @@ fun CircuitoCard(circuito: Circuito, modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .background(Color(180, 0, 0)) // Fondo rojo
             ) {
-                Text(
-                    text = LocalContext.current.getString(circuito.nombre),
-                    modifier = Modifier
-                        .padding(16.dp), // Añade espacio interno
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontFamily = FontFamily.Serif,
-                    fontStyle = FontStyle.Italic,
-                    //fontWeight = FontWeight.Bold,
-                    color = Color.White // Color del texto
+                Row(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = LocalContext.current.getString(circuito.nombre),
+                        modifier = Modifier
+                            .padding(16.dp), // Añade espacio interno
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontFamily = FontFamily.Serif,
+                        fontStyle = FontStyle.Italic,
+                        //fontWeight = FontWeight.Bold,
+                        color = Color.White // Color del texto
+                    )
+                    Expandible(
+                        expanded = expanded,
+                        onClick = { expanded = !expanded },
+
+                    )
+                }
+            }
+            if (expanded) {
+                DescripcionCircuito(
+                    circuito.descripcion, modifier = Modifier
                 )
             }
         }
+    }
+}
+
+@Composable
+fun DescripcionCircuito (
+    @StringRes descripcionCircuito: Int,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+    ) {
+        Text(
+            text = stringResource(R.string.about),
+            style = MaterialTheme.typography.labelSmall
+        )
+        Text(
+            text = stringResource(descripcionCircuito),
+            style = MaterialTheme.typography.bodyLarge
+        )
     }
 }
 
