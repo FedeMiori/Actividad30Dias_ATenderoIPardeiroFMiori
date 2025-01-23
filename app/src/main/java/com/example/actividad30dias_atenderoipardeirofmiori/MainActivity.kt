@@ -1,7 +1,6 @@
 package com.example.actividad30dias_atenderoipardeirofmiori
 
 import android.annotation.SuppressLint
-import android.graphics.fonts.Font
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -128,9 +127,8 @@ fun CircuitoCard(circuito: Circuito, modifier: Modifier = Modifier) {
                             .padding(16.dp)
                             .weight(1f),
                         style = MaterialTheme.typography.headlineSmall,
-                        //fontFamily = FontFamily.Serif,
                         fontStyle = FontStyle.Italic,
-                        //fontWeight = FontWeight.Bold,
+                        fontWeight = FontWeight.Bold,
                         color = Color.White
                     )
                     Expandible(
